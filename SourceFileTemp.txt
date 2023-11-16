@@ -1,0 +1,85 @@
+for string in xxxxxxx.tttt ; do
+  curl https://www.ncei.noaa.gov/data/blended-global-sea-surface-wind-products/access/winds/daily/2011/$string --output $string 
+done
+
+2004 2008 2012 2016 2022闰年 
+www.ncei.noaa.gov/data/blended-global-sea-surface-wind-products/access/winds/daily/2002/
+
+www.ncei.noaa.gov/data/blended-global-sea-surface-wind-products/access/winds/daily/2018/
+
+Source:
+           /Users/zlh/Downloads/Wind/uv20180101rt.nc
+Format:
+           classic
+Global Attributes:
+           Conventions        = 'COARDS, CF-1.0, Unidata Dataset Discovery v1.0'
+           title              = 'NOAA/NCDC Blended daily 0.25-degree Sea Surface Winds'
+           source             = 'Multiple satellite observations: DMSP SSMI F08, F10, F11, F13,F14 F15; TMI; QuikSCAT; AMSR-E; Direction from NCEP Reanalysis-2'
+           summary            = 'Gridded and blended sea surface vector winds from multiple satellites with direction from NCEP Reanalysis-2; Global ocean coverage with a 0.25-degree resolution; The whole datasets covers from July 1987 to present, daily resolution in this dataset; 6-hourly and monthly are also available in other directories; See http://www.ncdc.noaa.gov/oa/rsad/blendedseawinds.html and links within for details. Include (u,v) means and scalar mean speed w for comparison'
+           Keywords           = 'sea winds, ocean winds, sea surface winds, air-sea interaction, air-sea flux, wind-driven circulation, Ekman pumping, Ekman transport, ocean upwelling, wind stress, windstress'
+           references         = 'links at http://www.ncdc.noaa.gov/oa/rsad/blendedseawinds.html'
+           History            = 'Simple spatiotemporally weighted Interpolation (SI), V.1.2. Version 1.2 uses updated satellite retrievals by Remote Sensing System, released in September 2006: SSMI V06, TMI V04, QSCAT V03a. AMSRE V05 was also updated using the new SSMI rain rate'
+           institution        = 'NOAA NESDIS National Climatic Data Center'
+           Contact            = 'Huai-Min.Zhang AT noaa.gov or satorder AT noaa.gov;         ph:1+828-271-4090'
+           Acknowledgment     = 'The gridded data were generated from the multiple satellite observations of DOD, NOAA and NASA (and future others) and wind retrievals of the Remote Sensing Systems, Inc. (http://www.remss.com), using scientific methods such as objective analysis (OA). The OA is only truly objective when the needed statistics are completely known, which may not be always the case.'
+           Data_Calendar_Date = '2018-01-01'
+Dimensions:
+           zlev = 1
+           time = 1
+           lat  = 719
+           lon  = 1440
+Variables:
+    time
+           Size:       1x1
+           Dimensions: time
+           Datatype:   int32
+           Attributes:
+                       long_name = 'Center Time of the Data'
+                       units     = 'hours since 1978-01-01 00:00:00'
+    zlev
+           Size:       1x1
+           Dimensions: zlev
+           Datatype:   single
+           Attributes:
+                       long_name = 'height above sea level'
+                       units     = 'meters'
+    lat 
+           Size:       719x1
+           Dimensions: lat
+           Datatype:   single
+           Attributes:
+                       long_name = 'latitude'
+                       units     = 'degrees_north'
+                       grids     = 'uniform grids from -89.75 to 89.75 by 0.25'
+    lon 
+           Size:       1440x1
+           Dimensions: lon
+           Datatype:   single
+           Attributes:
+                       long_name = 'longitude'
+                       units     = 'degrees_east'
+                       grids     = 'uniform grids from 0.00 to 359.75 by 0.25'
+    u   
+           Size:       1440x719x1x1
+           Dimensions: lon,lat,zlev,time
+           Datatype:   single
+           Attributes:
+                       long_name  = 'Sea Surface Wind: x-component'
+                       units      = 'm/s'
+                       _FillValue = -9999
+    v   
+           Size:       1440x719x1x1
+           Dimensions: lon,lat,zlev,time
+           Datatype:   single
+           Attributes:
+                       long_name  = 'Sea Surface Wind: y-component'
+                       units      = 'm/s'
+                       _FillValue = -9999
+    w   
+           Size:       1440x719x1x1
+           Dimensions: lon,lat,zlev,time
+           Datatype:   single
+           Attributes:
+                       long_name  = 'Sea Surface Wind: speed as scalar means'
+                       units      = 'm/s'
+                       _FillValue = -9999
